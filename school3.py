@@ -7,7 +7,7 @@ while True:
     res = request.get(url)
 
     date = res.json()
-    creationDate = datetime.strptime(datas[0]['DataCreationDate'],
+    creationDate = datetime.strptime(datas[0]['DataCreationDate'], "%Y-%m-%d %H:%M")
     ftime = creationDate.strftime("%Y%m%d%H%M%S")
     with open ("D:\\pm2.5_"+ftime+".json", 'wb') as f:
         #f.write(res.content)
