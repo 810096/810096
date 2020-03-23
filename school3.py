@@ -1,17 +1,17 @@
-import request, time
+import requests, time
 from datetime import datetime
 
 while True:
     start = datetime.now()
-    url = "http://opendata.epa.gov.tw/ws/Data/ATM00625/?$format-json"
-    res = request.get(url)
-
-    date = res.json()
-    creationDate = datetime.strptime(datas[0]['DataCreationDate'], "%Y-%m-%d %H:%M")
-    ftime = creationDate.strftime("%Y%m%d%H%M%S")
-    with open ("D:\\pm2.5_"+ftime+".json", 'wb') as f:
+    uil = 'https://opendata.epa.gov.tw/ws/Data/ATM00625/?$format=json'
+    res = requests.get(uil)
+    print(res.text)
+    datas = res.json()
+    creationData = datetime.strptime(datas[0]['DataCreationDate'], '%Y-%m-%d %H:%M')
+    ftime = creationData.strftime('%Y%m%d%H%M')
+    with open('D:\\pm25_'+ftime+'.json', 'wb') as f:
         #f.write(res.content)
         f.write(res.content)
     td = datetime.now() - start
-    print("花費", td.second, "秒")
+    print('花費', td.seconds, '秒')
     time.sleep(60*30-td.seconds)
