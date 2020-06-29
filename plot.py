@@ -26,3 +26,5 @@ for x, y1 in zip(axis_x, Y1):
 for x, y2 in zip(axis_x, Y2):
     plt.text(x, y2, '%.2f' % y2 ,ha='center', va='bottom')
 plt.show()
+
+
