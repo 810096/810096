@@ -27,4 +27,5 @@ for x, y2 in zip(axis_x, Y2):
     plt.text(x, y2, '%.2f' % y2 ,ha='center', va='bottom')
 plt.show()
 
-
+#https://data.gov.tw/dataset/125141 勞動參與率
+#https://data.gov.tw/dataset/124847 失業率
